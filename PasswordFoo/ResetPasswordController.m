@@ -69,7 +69,6 @@
 }
 
 -(IBAction)setNewPassword:(id)sender {
-    NSLog(@"setNewPassword:");
     NSString *oldPassword = self.oldPasswordTextField.text;
     if ([WOCKeychainWrapper passwordMatches:oldPassword]) {
         NSString *newPassword = self.freshPasswordTextField.text;

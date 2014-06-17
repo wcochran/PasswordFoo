@@ -68,7 +68,6 @@
 
 
 - (IBAction)setPassword:(id)sender {
-    NSLog(@"setPassword:");
     NSString *password = self.passwordTextField.text;
     if ([password isEqualToString:self.confirmPasswordTextField.text]) {
         [WOCKeychainWrapper setPassword:password];

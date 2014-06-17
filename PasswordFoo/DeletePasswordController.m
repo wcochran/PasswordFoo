@@ -61,7 +61,6 @@
 }
 
 - (IBAction)deletePassword:(id)sender {
-    NSLog(@"deletePassword:");
     NSString *password = self.passwordTextField.text;
     if ([WOCKeychainWrapper passwordMatches:password]) {
         BOOL success = [WOCKeychainWrapper deletePassword:password];

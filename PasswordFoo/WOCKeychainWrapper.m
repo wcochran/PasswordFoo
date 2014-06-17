@@ -101,7 +101,7 @@
 
 +(void)forceDeletePassword {
     NSDictionary *spec = @{(__bridge id)kSecClass: (__bridge id)kSecClassGenericPassword};
-    OSStatus status = SecItemDelete((__bridge CFDictionaryRef)spec);
+    SecItemDelete((__bridge CFDictionaryRef)spec);
 }
 
 

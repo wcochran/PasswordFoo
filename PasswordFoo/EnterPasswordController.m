@@ -61,7 +61,6 @@
 }
 
 - (IBAction)enterPassword:(id)sender {
-    NSLog(@"enterPassword");
     NSString *password = self.passwordTextField.text;
     if ([WOCKeychainWrapper passwordMatches:password]) {
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Congratulations!"

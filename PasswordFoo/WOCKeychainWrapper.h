@@ -18,7 +18,7 @@
 // is already set to avoid this situation.
 //
 // Note that use should not store plain text passwords at all; e.g., use CC_SHA256
-// (from ) to hash the plaintext passowrd before storing it.
+// to hash the plaintext passowrd before storing it.
 // (see http://www.raywenderlich.com/6475/basic-security-in-ios-5-tutorial-part-1).
 //
 
