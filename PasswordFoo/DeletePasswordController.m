@@ -12,7 +12,7 @@
 
 @interface DeletePasswordController () <UIAlertViewDelegate>
 @property (weak, nonatomic) IBOutlet UITextField *passwordTextField;
-
+@property (weak, nonatomic) IBOutlet UIButton *deleteButton;
 @end
 
 @implementation DeletePasswordController

@@ -14,6 +14,7 @@
 
 @property (weak, nonatomic) IBOutlet UITextField *passwordTextField;
 @property (weak, nonatomic) IBOutlet UITextField *confirmPasswordTextField;
+@property (weak, nonatomic) IBOutlet UIButton *setPasswordButton;
 
 @end
 
@@ -33,10 +34,12 @@
 
 -(void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
+    // XXX BOOL authenticated = [WOCKeychainWrapper hasPassword];
     AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
     if (appDelegate.userAuthenticated) {
         self.passwordTextField.enabled = NO;
         self.confirmPasswordTextField.enabled = NO;
+        self.setPasswordButton.enabled = NO;
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Password already Created!"
                                                         message:@"You already have a password. You can reset the password elsewhere."
                                                        delegate:nil

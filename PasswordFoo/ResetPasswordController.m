@@ -15,6 +15,7 @@
 @property (weak, nonatomic) IBOutlet UITextField *oldPasswordTextField;
 @property (weak, nonatomic) IBOutlet UITextField *freshPasswordTextField;
 @property (weak, nonatomic) IBOutlet UITextField *confirmFreshPasswordTextField;
+@property (weak, nonatomic) IBOutlet UIButton *setPasswordButton;
 
 -(IBAction)setNewPassword:(id)sender;
 
@@ -52,6 +53,7 @@
         self.oldPasswordTextField.enabled = NO;
         self.freshPasswordTextField.enabled = NO;
         self.confirmFreshPasswordTextField.enabled = NO;
+        self.setPasswordButton.enabled = NO;
     } else {
         [self.oldPasswordTextField becomeFirstResponder];
     }

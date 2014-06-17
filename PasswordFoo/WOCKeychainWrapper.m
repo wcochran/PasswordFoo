@@ -59,6 +59,15 @@
     return status == errSecSuccess;
 }
 
+//+(BOOL)hasPassword {
+//    NSDictionary *query = @{(__bridge id) kSecClass: (__bridge id) kSecClassGenericPassword,
+//                            (__bridge id) kSecAttrAccount : ACCOUNT,
+//                            (__bridge id) kSecAttrService : APP_NAME};
+//    CFTypeRef result = NULL;
+//    OSStatus status =  SecItemCopyMatching((__bridge CFDictionaryRef)(query), &result);
+//    return status == errSecSuccess && result != NULL;
+//}
+
 //
 // SecItemCopyMatching
 //
@@ -67,9 +76,9 @@
                             (__bridge id) kSecAttrAccount : ACCOUNT,
                             (__bridge id) kSecAttrService : APP_NAME,
                             (__bridge id) kSecReturnData : (__bridge id) kCFBooleanTrue};
-    CFTypeRef resultRef;
-    OSStatus err =  SecItemCopyMatching((__bridge CFDictionaryRef)(query), &resultRef);
-    if (err == errSecSuccess) {
+    CFTypeRef resultRef = NULL;
+    OSStatus status =  SecItemCopyMatching((__bridge CFDictionaryRef)(query), &resultRef);
+    if (status == errSecSuccess && resultRef != NULL) {
         NSData *result = (__bridge_transfer NSData*)resultRef;
         NSString *storedPassword = [[NSString alloc] initWithData:result encoding:NSUTF8StringEncoding];
         return [storedPassword isEqualToString:password];
@@ -88,6 +97,11 @@
                            (__bridge id) kSecValueData : passwordData};
     OSStatus status = SecItemDelete((__bridge CFDictionaryRef)(attr));
     return status == errSecSuccess;
+}
+
++(void)forceDeletePassword {
+    NSDictionary *spec = @{(__bridge id)kSecClass: (__bridge id)kSecClassGenericPassword};
+    OSStatus status = SecItemDelete((__bridge CFDictionaryRef)spec);
 }
 
 

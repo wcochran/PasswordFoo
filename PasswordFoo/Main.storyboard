@@ -214,6 +214,7 @@
                     <connections>
                         <outlet property="confirmPasswordTextField" destination="yIz-Xr-gnu" id="Iuu-Oq-BID"/>
                         <outlet property="passwordTextField" destination="Av4-tM-1AG" id="gxD-Qr-sBj"/>
+                        <outlet property="setPasswordButton" destination="CVw-Be-A0n" id="t42-7Z-EDG"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="b3W-P7-46R" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -299,6 +300,7 @@
                     </tableView>
                     <navigationItem key="navigationItem" id="d7n-MX-Knq"/>
                     <connections>
+                        <outlet property="doneButton" destination="Bci-bE-3bq" id="2sO-8j-lvQ"/>
                         <outlet property="passwordTextField" destination="lSB-3c-nVk" id="wVC-fe-D3b"/>
                     </connections>
                 </tableViewController>
@@ -403,6 +405,7 @@
                     </tableView>
                     <navigationItem key="navigationItem" id="ICj-06-a4f"/>
                     <connections>
+                        <outlet property="deleteButton" destination="4a0-6B-ZUb" id="fKz-tx-7VW"/>
                         <outlet property="passwordTextField" destination="t99-Ef-2aX" id="R50-Je-QP7"/>
                     </connections>
                 </tableViewController>
@@ -540,6 +543,7 @@
                         <outlet property="confirmFreshPasswordTextField" destination="5CI-9m-SPj" id="a72-EZ-DVg"/>
                         <outlet property="freshPasswordTextField" destination="3CP-Gc-GG0" id="V5a-EN-fm2"/>
                         <outlet property="oldPasswordTextField" destination="wKI-kp-pj8" id="qae-B2-Qas"/>
+                        <outlet property="setPasswordButton" destination="SQK-wU-Ab8" id="xz8-te-RF6"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2Xr-wF-aNJ" userLabel="First Responder" sceneMemberID="firstResponder"/>

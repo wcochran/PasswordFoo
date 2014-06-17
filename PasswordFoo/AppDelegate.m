@@ -7,16 +7,21 @@
 //
 
 #import "AppDelegate.h"
+#import "WOCKeychainWrapper.h"
+
+#define kAppHasRanKey @"appHasRan"
 
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-//    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-//    // Override point for customization after application launch.
-//    self.window.backgroundColor = [UIColor whiteColor];
-//    [self.window makeKeyAndVisible];
-    self.userAuthenticated = NO;
+    const BOOL firstTime = ![[NSUserDefaults standardUserDefaults] boolForKey:kAppHasRanKey];
+    if (firstTime) {
+        self.userAuthenticated = NO;
+        [WOCKeychainWrapper forceDeletePassword];
+    }
+    [[NSUserDefaults standardUserDefaults] setBool:YES forKey:kAppHasRanKey];
+    [[NSUserDefaults standardUserDefaults] synchronize];
     return YES;
 }
 

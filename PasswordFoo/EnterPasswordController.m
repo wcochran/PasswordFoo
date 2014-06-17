@@ -12,7 +12,7 @@
 
 @interface EnterPasswordController () <UIAlertViewDelegate>
 @property (weak, nonatomic) IBOutlet UITextField *passwordTextField;
-
+@property (weak, nonatomic) IBOutlet UIButton *doneButton;
 @end
 
 @implementation EnterPasswordController
@@ -39,6 +39,7 @@
                                               otherButtonTitles: nil];
         [alert show];
         self.passwordTextField.enabled = NO;
+        self.doneButton.enabled = NO;
     } else {
         [self.passwordTextField becomeFirstResponder];
     }
