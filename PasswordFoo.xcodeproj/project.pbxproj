@@ -23,6 +23,7 @@
 		55510F33194FC55E0030E71D /* CreatePasswordController.m in Sources */ = {isa = PBXBuildFile; fileRef = 55510F32194FC55E0030E71D /* CreatePasswordController.m */; };
 		55510F36194FC6440030E71D /* EnterPasswordController.m in Sources */ = {isa = PBXBuildFile; fileRef = 55510F35194FC6430030E71D /* EnterPasswordController.m */; };
 		55510F39194FC6F60030E71D /* DeletePasswordController.m in Sources */ = {isa = PBXBuildFile; fileRef = 55510F38194FC6F60030E71D /* DeletePasswordController.m */; };
+		55510F3C194FCA2A0030E71D /* WOCKeychainWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = 55510F3B194FCA2A0030E71D /* WOCKeychainWrapper.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,6 +60,8 @@
 		55510F35194FC6430030E71D /* EnterPasswordController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EnterPasswordController.m; sourceTree = "<group>"; };
 		55510F37194FC6F60030E71D /* DeletePasswordController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DeletePasswordController.h; sourceTree = "<group>"; };
 		55510F38194FC6F60030E71D /* DeletePasswordController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DeletePasswordController.m; sourceTree = "<group>"; };
+		55510F3A194FCA2A0030E71D /* WOCKeychainWrapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WOCKeychainWrapper.h; sourceTree = "<group>"; };
+		55510F3B194FCA2A0030E71D /* WOCKeychainWrapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WOCKeychainWrapper.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -128,6 +131,8 @@
 				55510F35194FC6430030E71D /* EnterPasswordController.m */,
 				55510F37194FC6F60030E71D /* DeletePasswordController.h */,
 				55510F38194FC6F60030E71D /* DeletePasswordController.m */,
+				55510F3A194FCA2A0030E71D /* WOCKeychainWrapper.h */,
+				55510F3B194FCA2A0030E71D /* WOCKeychainWrapper.m */,
 				55510F07194FB9C60030E71D /* Supporting Files */,
 			);
 			path = PasswordFoo;
@@ -261,6 +266,7 @@
 				55510F11194FB9C60030E71D /* AppDelegate.m in Sources */,
 				55510F36194FC6440030E71D /* EnterPasswordController.m in Sources */,
 				55510F0D194FB9C60030E71D /* main.m in Sources */,
+				55510F3C194FCA2A0030E71D /* WOCKeychainWrapper.m in Sources */,
 				55510F39194FC6F60030E71D /* DeletePasswordController.m in Sources */,
 				55510F33194FC55E0030E71D /* CreatePasswordController.m in Sources */,
 			);
