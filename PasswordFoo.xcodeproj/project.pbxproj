@@ -19,6 +19,10 @@
 		55510F1C194FB9C60030E71D /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 55510F04194FB9C60030E71D /* UIKit.framework */; };
 		55510F24194FB9C60030E71D /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 55510F22194FB9C60030E71D /* InfoPlist.strings */; };
 		55510F26194FB9C60030E71D /* PasswordFooTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 55510F25194FB9C60030E71D /* PasswordFooTests.m */; };
+		55510F30194FC14F0030E71D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 55510F2F194FC14F0030E71D /* Main.storyboard */; };
+		55510F33194FC55E0030E71D /* CreatePasswordController.m in Sources */ = {isa = PBXBuildFile; fileRef = 55510F32194FC55E0030E71D /* CreatePasswordController.m */; };
+		55510F36194FC6440030E71D /* EnterPasswordController.m in Sources */ = {isa = PBXBuildFile; fileRef = 55510F35194FC6430030E71D /* EnterPasswordController.m */; };
+		55510F39194FC6F60030E71D /* DeletePasswordController.m in Sources */ = {isa = PBXBuildFile; fileRef = 55510F38194FC6F60030E71D /* DeletePasswordController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,6 +52,13 @@
 		55510F21194FB9C60030E71D /* PasswordFooTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "PasswordFooTests-Info.plist"; sourceTree = "<group>"; };
 		55510F23194FB9C60030E71D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		55510F25194FB9C60030E71D /* PasswordFooTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PasswordFooTests.m; sourceTree = "<group>"; };
+		55510F2F194FC14F0030E71D /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		55510F31194FC55E0030E71D /* CreatePasswordController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CreatePasswordController.h; sourceTree = "<group>"; };
+		55510F32194FC55E0030E71D /* CreatePasswordController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CreatePasswordController.m; sourceTree = "<group>"; };
+		55510F34194FC6430030E71D /* EnterPasswordController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EnterPasswordController.h; sourceTree = "<group>"; };
+		55510F35194FC6430030E71D /* EnterPasswordController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EnterPasswordController.m; sourceTree = "<group>"; };
+		55510F37194FC6F60030E71D /* DeletePasswordController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DeletePasswordController.h; sourceTree = "<group>"; };
+		55510F38194FC6F60030E71D /* DeletePasswordController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DeletePasswordController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -110,6 +121,13 @@
 				55510F0F194FB9C60030E71D /* AppDelegate.h */,
 				55510F10194FB9C60030E71D /* AppDelegate.m */,
 				55510F12194FB9C60030E71D /* Images.xcassets */,
+				55510F2F194FC14F0030E71D /* Main.storyboard */,
+				55510F31194FC55E0030E71D /* CreatePasswordController.h */,
+				55510F32194FC55E0030E71D /* CreatePasswordController.m */,
+				55510F34194FC6430030E71D /* EnterPasswordController.h */,
+				55510F35194FC6430030E71D /* EnterPasswordController.m */,
+				55510F37194FC6F60030E71D /* DeletePasswordController.h */,
+				55510F38194FC6F60030E71D /* DeletePasswordController.m */,
 				55510F07194FB9C60030E71D /* Supporting Files */,
 			);
 			path = PasswordFoo;
@@ -219,6 +237,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				55510F30194FC14F0030E71D /* Main.storyboard in Resources */,
 				55510F0B194FB9C60030E71D /* InfoPlist.strings in Resources */,
 				55510F13194FB9C60030E71D /* Images.xcassets in Resources */,
 			);
@@ -240,7 +259,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				55510F11194FB9C60030E71D /* AppDelegate.m in Sources */,
+				55510F36194FC6440030E71D /* EnterPasswordController.m in Sources */,
 				55510F0D194FB9C60030E71D /* main.m in Sources */,
+				55510F39194FC6F60030E71D /* DeletePasswordController.m in Sources */,
+				55510F33194FC55E0030E71D /* CreatePasswordController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
