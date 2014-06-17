@@ -16,6 +16,7 @@
 //    // Override point for customization after application launch.
 //    self.window.backgroundColor = [UIColor whiteColor];
 //    [self.window makeKeyAndVisible];
+    self.userAuthenticated = NO;
     return YES;
 }
 
@@ -44,6 +45,21 @@
 - (void)applicationWillTerminate:(UIApplication *)application
 {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+}
+
+//
+// We'll persistently store "user has authenticated" flag in user defaults.
+//
+
+#define kUserAuthenticatedKey @"userAuthenticatedKey"
+
+-(BOOL)userAuthenticated {
+    return [[NSUserDefaults standardUserDefaults] boolForKey:kUserAuthenticatedKey];
+}
+
+-(void)setUserAuthenticated:(BOOL)userAuthenticated {
+    [[NSUserDefaults standardUserDefaults] setBool:userAuthenticated forKey:kUserAuthenticatedKey];
+    [[NSUserDefaults standardUserDefaults] synchronize];
 }
 
 @end

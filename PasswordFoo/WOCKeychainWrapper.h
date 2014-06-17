@@ -10,9 +10,9 @@
 
 @interface WOCKeychainWrapper : NSObject
 
--(BOOL)setPassword:(NSString*)password; // fails if password already set (use update)
--(BOOL)updatePassword:(NSString*)newPassword OldPassword:(NSString*)oldPassword;
--(BOOL)passwordMatches:(NSString*)password;
--(BOOL)deletePassword:(NSString*)password;
++(BOOL)setPassword:(NSString*)password; // fails if password already set (use update)
++(BOOL)updatePassword:(NSString*)newPassword OldPassword:(NSString*)oldPassword;
++(BOOL)passwordMatches:(NSString*)password;
++(BOOL)deletePassword:(NSString*)password;
 
 @end

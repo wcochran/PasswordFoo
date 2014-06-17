@@ -14,33 +14,43 @@
 //  http://useyourloaf.com/blog/2010/04/28/keychain-duplicate-item-when-adding-password.html
 //
 //
+//  We are using keychain item class of kSecClassGenericPassword. The primary key is uniquely
+//  identified by the constants kSecAttrAccount and kSecAttrService. See the 'Keychain Services Ease of Use' section in
+//  https://developer.apple.com/library/mac/documentation/security/conceptual/keychainServConcepts/02concepts/concepts.html
+//
+//  kSecAttrAccessGroup is for sharing a keychain item among multiple aplications (we are *not* interested
+//  in that here).
+//
 
 #import "WOCKeychainWrapper.h"
 #import <Security/Security.h>
 
-#define ACCOUNT @"PasswordFooAccount"
+#define APP_NAME [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleIdentifier"]
+#define ACCOUNT @"ImaUser"
 
 @implementation WOCKeychainWrapper
 
 //
 // SecItemAdd
 //
--(BOOL)setPassword:(NSString*)password {
++(BOOL)setPassword:(NSString*)password {
     NSData *passwordData = [password dataUsingEncoding:NSUTF8StringEncoding];
     NSDictionary *attr = @{(__bridge id) kSecClass: (__bridge id) kSecClassGenericPassword,
-                           (__bridge id) kSecAttrAccount : ACCOUNT, // XXXX kSecAttrService?
+                           (__bridge id) kSecAttrAccount : ACCOUNT,
+                           (__bridge id) kSecAttrService : APP_NAME,
                            (__bridge id) kSecValueData : passwordData};
-    OSStatus err = SecItemAdd((__bridge CFDictionaryRef)attr, NULL);
+    OSStatus err = SecItemAdd((__bridge CFDictionaryRef)attr, NULL);  // NULL => default keychain
     return err == errSecSuccess; // err == errSecDuplicateItem if password already set
 }
 
 //
 // SecItemUpdate
 //
--(BOOL)updatePassword:(NSString*)newPassword OldPassword:(NSString*)oldPassword {
++(BOOL)updatePassword:(NSString*)newPassword OldPassword:(NSString*)oldPassword {
     NSData *oldPasswordData = [oldPassword dataUsingEncoding:NSUTF8StringEncoding];
     NSDictionary *searchDict = @{(__bridge id) kSecClass: (__bridge id) kSecClassGenericPassword,
                                  (__bridge id) kSecAttrAccount : ACCOUNT,
+                                 (__bridge id) kSecAttrService : APP_NAME,
                                  (__bridge id) kSecValueData : oldPasswordData};
     NSData *newPasswordData = [newPassword dataUsingEncoding:NSUTF8StringEncoding];
     NSDictionary *updateDict = @{(__bridge id) kSecValueData : newPasswordData};
@@ -52,14 +62,15 @@
 //
 // SecItemCopyMatching
 //
--(BOOL)passwordMatches:(NSString*)password {
++(BOOL)passwordMatches:(NSString*)password {
     NSDictionary *query = @{(__bridge id) kSecClass: (__bridge id) kSecClassGenericPassword,
                             (__bridge id) kSecAttrAccount : ACCOUNT,
+                            (__bridge id) kSecAttrService : APP_NAME,
                             (__bridge id) kSecReturnData : (__bridge id) kCFBooleanTrue};
-    CFTypeRef returnTypeRef;
-    OSStatus err =  SecItemCopyMatching((__bridge CFDictionaryRef)(query), &returnTypeRef);
+    CFTypeRef resultRef;
+    OSStatus err =  SecItemCopyMatching((__bridge CFDictionaryRef)(query), &resultRef);
     if (err == errSecSuccess) {
-        NSData *result = (__bridge_transfer NSData*)returnTypeRef;
+        NSData *result = (__bridge_transfer NSData*)resultRef;
         NSString *storedPassword = [[NSString alloc] initWithData:result encoding:NSUTF8StringEncoding];
         return [storedPassword isEqualToString:password];
     }
@@ -69,13 +80,14 @@
 //
 // SecItemDelete()
 //
--(BOOL)deletePassword:(NSString*)password {
++(BOOL)deletePassword:(NSString*)password {
     NSData *passwordData = [password dataUsingEncoding:NSUTF8StringEncoding];
     NSDictionary *attr = @{(__bridge id) kSecClass: (__bridge id) kSecClassGenericPassword,
                            (__bridge id) kSecAttrAccount : ACCOUNT,
+                           (__bridge id) kSecAttrService : APP_NAME,
                            (__bridge id) kSecValueData : passwordData};
     OSStatus status = SecItemDelete((__bridge CFDictionaryRef)(attr));
-    return status = errSecSuccess;
+    return status == errSecSuccess;
 }
 
 
